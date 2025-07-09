@@ -1,0 +1,6 @@
+{
+    "environment": "publishing",
+    "managementApiUrl": "https://${APIM_SERVICE_NAME}.management.azure-api.net",
+    "managementApiAccessToken": "${ACCESS_TOKEN}",
+    "useHipCaptcha": false
+}

@@ -1,0 +1,12 @@
+{
+    "environment": "development",
+    "managementApiUrl": "https://${APIM_SERVICE_NAME}.management.azure-api.net",
+    "managementApiAccessToken": "${ACCESS_TOKEN}",
+    "backendUrl": "https://${APIM_SERVICE_NAME}.developer.azure-api.net",
+    "useHipCaptcha": false,
+    "integration": {
+        "googleFonts": {
+            "apiKey": "${GOOGLE_FONTS_API_KEY}"
+        }
+    }
+}
