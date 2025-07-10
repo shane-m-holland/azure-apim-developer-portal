@@ -19,7 +19,7 @@ This repository provides a **self-hosted version of the Azure API Management Dev
 
 Before running the self-hosted Developer Portal, make sure the following prerequisites are met:
 
-#### 1. 🧩 Azure API Management (APIM) Instance
+### 1. 🧩 Azure API Management (APIM) Instance
 
 You must have an active **Azure API Management** (APIM) instance:
 
@@ -28,13 +28,13 @@ You must have an active **Azure API Management** (APIM) instance:
 
 If you don’t already have an APIM instance, you can [create one here](https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance).
 
-#### 2. 🔑 Generate an SAS Token (for user authentication)
+### 2. 🔑 Generate an SAS Token (for user authentication)
 
 To enable the Developer Portal to fetch content and act on behalf of a user, you need to generate a **Shared Access Signature (SAS) token**.
 
 > This token is required to access the [APIM Management API](https://learn.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/) securely.
 
-##### 📖 Follow the instructions here to manually create the token:
+#### 📖 Follow the instructions here to manually create the token:
 
 ➡️ [Azure APIM REST API Authentication – Manually Create Token](https://learn.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken)
 
@@ -44,7 +44,7 @@ The resulting token is in the format:
 SharedAccessSignature ...
 ```
 
-#### 3. ⚙️ Additional Tools (for local builds or debugging)
+### 3. ⚙️ Additional Tools (for local builds or debugging)
 
 - Docker (for container builds)
 - Node.js 20 (only if you are building or running outside of Docker)
