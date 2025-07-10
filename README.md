@@ -15,6 +15,42 @@ This repository provides a **self-hosted version of the Azure API Management Dev
 
 ---
 
+## ✅ Prerequisites
+
+Before running the self-hosted Developer Portal, make sure the following prerequisites are met:
+
+#### 1. 🧩 Azure API Management (APIM) Instance
+
+You must have an active **Azure API Management** (APIM) instance:
+
+- The instance must be fully deployed and reachable via Azure Resource Manager (ARM)
+- The self-hosted portal will connect to this APIM instance to fetch metadata and page content
+
+If you don’t already have an APIM instance, you can [create one here](https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance).
+
+#### 2. 🔑 Generate an SAS Token (for user authentication)
+
+To enable the Developer Portal to fetch content and act on behalf of a user, you need to generate a **Shared Access Signature (SAS) token**.
+
+> This token is required to access the [APIM Management API](https://learn.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/) securely.
+
+##### 📖 Follow the instructions here to manually create the token:
+
+➡️ [Azure APIM REST API Authentication – Manually Create Token](https://learn.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken)
+
+The resulting token is in the format:
+
+```text
+SharedAccessSignature ...
+```
+
+#### 3. ⚙️ Additional Tools (for local builds or debugging)
+
+- Docker (for container builds)
+- Node.js 20 (only if you are building or running outside of Docker)
+
+---
+
 ## 🚀 Quick Start
 
 ### 🔧 Build the Docker Image
@@ -44,7 +80,7 @@ Then open your browser at: [http://localhost:8080](http://localhost:8080)
 | `ACCESS_TOKEN`          | ✅       | Azure access token for `https://management.azure.com` |
 | `APIM_SERVICE_NAME`     | ✅       | Your API Management service name |
 | `GOOGLE_FONTS_API_KEY`  | ❌       | Optional key for loading custom fonts in the designer |
-| `DESIGNER_MODE`         | ❌       |  Whether to run the portal in designer mode (default: `false`) |
+| `DESIGNER_MODE`         | ❌       | Whether to run the portal in designer mode (default: `false`) |
 
 ---
 
