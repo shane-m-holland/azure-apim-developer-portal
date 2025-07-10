@@ -24,10 +24,19 @@ COPY generate-configs.js ./
 # Install dependencies once
 RUN npm install
 
+# Set the default mode
+ENV DESIGNER_MODE=false
+
 # Expose runtime port
-ENV PORT=8080
+EXPOSE 8080
 
 # Default command: generate config, build portal, and serve it
 CMD ["sh", "-c", "\
   node generate-configs.js && \
-  npm run publish"]
+  if [ \"$DESIGNER_MODE\" = \"true\" ]; then \
+    echo '🔧 Running in DESIGNER_MODE'; \
+    npm start; \
+  else \
+    echo '🚀 Running in PUBLISHER mode'; \
+    npm run publish; \
+  fi"]

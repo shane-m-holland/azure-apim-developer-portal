@@ -9,7 +9,7 @@ This repository provides a **self-hosted version of the Azure API Management Dev
 - Clone the official Microsoft portal source
 - Inject dynamic config using **runtime environment variables**
 - Build the static portal site on container startup
-- Serve the user-facing portal using a lightweight web server
+- Serve the user-facing portal using `webpack`
 
 > Supports version: `2.27.0` of the portal
 
@@ -44,7 +44,7 @@ Then open your browser at: [http://localhost:8080](http://localhost:8080)
 | `ACCESS_TOKEN`          | ✅       | Azure access token for `https://management.azure.com` |
 | `APIM_SERVICE_NAME`     | ✅       | Your API Management service name |
 | `GOOGLE_FONTS_API_KEY`  | ❌       | Optional key for loading custom fonts in the designer |
-| `PORT`                  | ❌       | Port to serve the portal (default: `8080`) |
+| `DESIGNER_MODE`         | ❌       |  Whether to run the portal in designer mode (default: `false`) |
 
 ---
 
@@ -57,7 +57,7 @@ At runtime, the container:
 3. Copies in the template config files
 4. Generates actual `config.*.json` files using environment variables
 5. Builds the publisher (end-user) portal
-6. Serves the built site using `http-server`
+6. Serves the built site using `webpack`
 
 ---
 
@@ -80,8 +80,7 @@ At runtime, the container:
 ## 🛠 Developer Notes
 
 - The container only serves the **publisher (end-user)** portal.
-- To use the **designer/editor** portal (`npm start`), you’ll need to modify the `CMD` in the Dockerfile.
-- `ACCESS_TOKEN` must be valid for the correct Azure tenant and subscription. If expired, restart the container with a fresh token.
+- To use the **designer/editor** portal (`npm start`), simply set `DESIGNER_MODE=true` as an environment variable at runtime.
 - You can run this behind a reverse proxy or inject configs using Kubernetes secrets.
 
 ---
